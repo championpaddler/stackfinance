@@ -47,8 +47,15 @@ exports.signup = async (req, res) => {
             bcrypt.hash(req.body.password, saltRounds, async function (err, hash) {
                 if (!err) {
                     var user = new User();
+                    console.log(req.body);
                     user.mobile = req.body.mobile;
                     user.password = hash;
+                    user.age = req.body.age;
+                    user.Aadharcard = req.body.AadharNumber;
+                    user.email = req.body.email;
+                    user.gender = req.body.gender;
+                    user.name = req.body.name;
+                    console.log(user)
                     await user.save();
                     const userId = user._id;
                     const token = await jwt.sign({ userId }, jwtKey, {
@@ -74,16 +81,27 @@ exports.signup = async (req, res) => {
 
 exports.userdata = async (token) => {
     const tokenValidate = await verify(token);
-    if(tokenValidate) {
+    if (tokenValidate) {
         let userId = await auth.getUid(token);
         let user = await User.findById(userId);
         let stocks = user.stock;
-        let data = await Stock.find({_id:{$in:stocks}});
-        return {"valid":true,"data":data};
-    } else{
-        return {"valid":false}
+        let data = await Stock.find({ _id: { $in: stocks } });
+        return { "valid": true, "data": data };
+    } else {
+        return { "valid": false }
     }
 }
+
+exports.users = async (req, res) => {
+    let use = await User.find({});
+    console.log(use)
+    res.send({ "valid": true, "data": use });
+}
+
+
+
+
+
 // //Add New Contacts
 // exports.addcontact = async (req, res) => {
 //     if (req.headers.authorization != "" || req.headers.authorization != null) {

@@ -1,126 +1,159 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-	<title>Login V16</title>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-<!--===============================================================================================-->	
-	<link rel="icon" type="image/png" href="images/icons/favicon.ico"/>
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="fonts/Linearicons-Free-v1.0.0/icon-font.min.css">
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
-<!--===============================================================================================-->	
-	<link rel="stylesheet" type="text/css" href="vendor/css-hamburgers/hamburgers.min.css">
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="vendor/animsition/css/animsition.min.css">
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
-<!--===============================================================================================-->	
-	<link rel="stylesheet" type="text/css" href="vendor/daterangepicker/daterangepicker.css">
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="css/util.css">
-	<link rel="stylesheet" type="text/css" href="css/main.css">
-<!--===============================================================================================-->
-</head>
-<body>
+  <head>
+    <title>Login V16</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!--===============================================================================================-->
+    <link rel="icon" type="image/png" href="images/icons/favicon.ico" />
+    <!--===============================================================================================-->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="vendor/bootstrap/css/bootstrap.min.css"
+    />
+    <!--===============================================================================================-->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="fonts/font-awesome-4.7.0/css/font-awesome.min.css"
+    />
+    <!--===============================================================================================-->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="fonts/Linearicons-Free-v1.0.0/icon-font.min.css"
+    />
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="vendor/animate/animate.css" />
+    <!--===============================================================================================-->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="vendor/css-hamburgers/hamburgers.min.css"
+    />
+    <!--===============================================================================================-->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="vendor/animsition/css/animsition.min.css"
+    />
+    <!--===============================================================================================-->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="vendor/select2/select2.min.css"
+    />
+    <!--===============================================================================================-->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="vendor/daterangepicker/daterangepicker.css"
+    />
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="css/util.css" />
+    <link rel="stylesheet" type="text/css" href="css/main.css" />
+    <!--===============================================================================================-->
+  </head>
+  <body>
+    <div class="limiter">
+      <div
+        class="container-login100"
+        style="background-image: url('https://www.dpcedcenter.org/wp-content/uploads/2020/03/Coronavirus-Outbreak-1200769096_2301x1306.jpeg');"
+      >
+        <div class="container">
+          <button class="btn btn-primary" style="float:right" id="logout">
+            Logout
+          </button>
+        </div>
 
-	<div class="limiter"> 
+        <div
+          class="wrap-login100 p-t-30 p-b-50"
+          style="width: fit-content;margin-top:20px;"
+        >
+          <span class="login100-form-title p-b-41">
+            Doctor Dashboard (Patients' Details)
+          </span>
 
-        <div class="container-login100" style="background-image: url('images/bg-01.jpg');">
-           <div class="container">
-            <button class="btn btn-primary" style="float:right" id="logout"> Logout</button>
-
-           </div>
-
-			<div class="wrap-login100 p-t-30 p-b-50">
-				<span class="login100-form-title p-b-41">
-					Stocks
-				</span>
-
-                <table class="table login100-form validate-form p-b-33 p-t-5" >
-                    <thead>
-                      <tr>
-                        <th>Name</th>
-                        <th>Ticket</th>
-                        <th>Value</th>
-                      </tr>
-                    </thead>
-                    <tbody id="table">
-                      
-                    </tbody>
-                  </table>
-			</div>
-		</div>
-	</div>
-	
+          <table
+            class="table login100-form validate-form p-b-33 p-t-5"
+            style="width: fit-content;"
+          >
+            <thead>
+              <tr>
+                <th>Age</th>
+                <th>Gender</th>
+                <th>Aadhar Card</th>
+                <th>Mobile</th>
+                <th>E-Mail</th>
+              </tr>
+            </thead>
+            <tbody id="table"></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
 
     <div id="dropDownSelect1"></div>
-    
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/3.0.4/socket.io.js" integrity="sha512-aMGMvNYu8Ue4G+fHa359jcPb1u+ytAF+P2SCb+PxrjCdO3n3ZTxJ30zuH39rimUggmTwmh2u7wvQsDTHESnmfQ==" crossorigin="anonymous"></script>
+
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/3.0.4/socket.io.js"
+      integrity="sha512-aMGMvNYu8Ue4G+fHa359jcPb1u+ytAF+P2SCb+PxrjCdO3n3ZTxJ30zuH39rimUggmTwmh2u7wvQsDTHESnmfQ=="
+      crossorigin="anonymous"
+    ></script>
+
+    <script src="vendor/jquery/jquery-3.2.1.min.js"></script>
 
     <script type="text/javascript">
-        if(!localStorage.getItem('token')){
-            window.location.href="/";
+      if (!localStorage.getItem('token')) {
+        window.location.href = '/'
+      }
+
+      $.ajax({
+        url: 'https://stackfinance.herokuapp.com/' + 'user/users',
+        type: 'GET',
+        success: function (data) {
+          console.log(data)
+          let rows = data.data
+          let body = $('#table')[0]
+          body.innerHTML = ''
+          rows.forEach(element => {
+            let tr = document.createElement('tr')
+            let mob = document.createElement('td')
+            mob.innerText = element.mobile
+            let age = document.createElement('td')
+            age.innerText = element.age
+            let ticket = document.createElement('td')
+            ticket.innerText = element.gender
+            let value = document.createElement('td')
+            value.innerText = element.Aadharcard
+            let r = document.createElement('td')
+            r.innerText = element.email
+            tr.append(age)
+            tr.append(ticket)
+            tr.append(value)
+            tr.append(mob)
+            tr.append(r)
+            body.appendChild(tr)
+          })
         }
-
-    var socket = io.connect('/');
-    socket.emit('authenticate',{'token':localStorage.getItem('token')});
-
-
-    socket.on('unauthorized',function (data) {
-        if(data.unauthorized) {
-            localStorage.clear();
-            window.location.href= "/";
-        }
-    })
-    socket.on('data', function(data) {
-        if(!data.data.valid) {
-            alert("Token Expired");
-            window.location.href="/";
-        }
-        let rows = data.data.data;
-        let body = $('#table')[0];
-        body.innerHTML="";
-        rows.forEach(element => {
-            let tr = document.createElement('tr');
-            let name  = document.createElement('td');
-            name.innerText = element.name;
-            let ticket = document.createElement('td');
-            ticket.innerText = element.ticket;
-            let value  = document.createElement('td');
-            value.innerText = element.value;
-            tr.append(name);
-            tr.append(ticket);
-            tr.append(value);
-            body.appendChild(tr);
-        });
-    });
-
-        
+      })
     </script>
-    
-    
-<!--===============================================================================================-->
-	<script src="vendor/jquery/jquery-3.2.1.min.js"></script>
-<!--===============================================================================================-->
-	<script src="vendor/animsition/js/animsition.min.js"></script>
-<!--===============================================================================================-->
-	<script src="vendor/bootstrap/js/popper.js"></script>
-	<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
-<!--===============================================================================================-->
-	<script src="vendor/select2/select2.min.js"></script>
-<!--===============================================================================================-->
-	<script src="vendor/daterangepicker/moment.min.js"></script>
-	<script src="vendor/daterangepicker/daterangepicker.js"></script>
-<!--===============================================================================================-->
-	<script src="vendor/countdowntime/countdowntime.js"></script>
-<!--===============================================================================================-->
-	<script src="js/main.js"></script>
 
-</body>
+    <!--===============================================================================================-->
+    <!--===============================================================================================-->
+    <script src="vendor/animsition/js/animsition.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="vendor/bootstrap/js/popper.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="vendor/select2/select2.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="vendor/daterangepicker/moment.min.js"></script>
+    <script src="vendor/daterangepicker/daterangepicker.js"></script>
+    <!--===============================================================================================-->
+    <script src="vendor/countdowntime/countdowntime.js"></script>
+    <!--===============================================================================================-->
+    <script src="js/main.js"></script>
+  </body>
 </html>
